@@ -1,0 +1,63 @@
+<script type="text/javascript">
+
+	alert("fo shizz");
+	
+	chrome.browserAction.onClicked.addListener(function(tab_something) {
+		
+		chrome.tabs.getSelected(null, function(tab) {
+						
+			chrome.tabs.sendRequest(tab.id, {command: "parse"}, function(response) {
+			
+			
+			});
+			
+		});
+								
+	});
+	
+	chrome.extension.onRequest.addListener(function(request, sender, sendResponse) {
+	
+		if(request.command=="ajax"){
+	  
+			var xmlHttpRequest = new XMLHttpRequest();
+			
+			url = request.link;
+																	
+			xmlHttpRequest.open("GET",url, true);
+			xmlHttpRequest.onreadystatechange=function(){
+			  
+				if (xmlHttpRequest.readyState==4){
+														
+				var myregexp_fat = new RegExp('rel="license" href="http://creativecommons.org/licenses/',"i");	
+				var myregexp_thin = new RegExp("Creative Commons","i");	
+			
+				if(xmlHttpRequest.responseText.match(myregexp_fat)){
+				
+					border="2px solid #00FF00";			
+				
+				}else if(xmlHttpRequest.responseText.match(myregexp_thin)){
+				
+					border="2px solid #FFFF00";			
+				
+				}else{
+
+					border="2px solid #FF0000";			
+
+				}	
+					
+				chrome.tabs.sendRequest(sender.tab.id, {command: "present", data:border, node: request.node_id}, function(response) {
+						
+				});
+					
+			}
+				
+		};				
+		
+		xmlHttpRequest.send();			
+		
+		}
+		
+	
+	});
+         
+</script>
