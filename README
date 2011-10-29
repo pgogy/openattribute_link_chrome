@@ -1,9 +1,6 @@
-OpenAttribute for Chrome
+OpenAttribute Link for Chrome
 =========================
 
-OpenAttribute for Chrome adds support for displaying license and
-attribution information for works as you browse. If the page or items
-on the page are licensed, a CC icon will appear in the URL bar, which
-can be clicked to display the author and license information. This
-metadata is used to generate HTML which can be used to attribute
-reuse.
+OpenAttribute Link for Chrome adds support for discovering license and
+attribution information for works as you browse. Clicking on the icon 
+will search all items linked to from this page for licensed materials.

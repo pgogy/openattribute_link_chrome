@@ -6,18 +6,17 @@
 		"js": ["content_script.js"]
    
    }],
-   "default_locale": "en_US",
    "icons": {
-      "128": "icon.png"
+      "128": "label.png"
    },
    "name": "Open Attribute Link",
    "browser_action": {
       "default_icon": "icon.png",
-	  "default_title": "DO SOME CRAZY SHITE"
+	  "default_title": "Check for licensed material"
    },
    "permissions": [ "tabs",
    					"<all_urls>",
 					"http://*/"
 				  ],
-   "version" : "0.6"
+   "version" : "0.1"
 }
